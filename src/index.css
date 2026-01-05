@@ -1,0 +1,110 @@
+@import "tailwindcss" ;
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+padding: 20px 100px ;
+
+
+
+}
+
+.menulist{
+  display: flex;
+  justify-content:  center;
+  gap: 6px;
+  padding-top: 20px;
+
+}
+.bg{
+ background-image: url(https://media.cntravellerme.com/photos/6821c432c23576637e2ff18e/16:9/w_2560%2Cc_limit/b777-businessclasswide.jpg,);
+  height: 99.9vh;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+ 
+}
+
+
+
+
+.form_align{
+  
+position: absolute;
+inset: 0; 
+
+}
+
+
+
+
+/* Form */
+form {
+  padding: 20px;
+ 
+ box-shadow: 20 20px 40px rgba(221, 121, 15, 0.088);
+  height: 300px;
+  width: auto;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+input, select {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #c68b66;
+}
+
+/* Button */
+.search-btn {
+  width: 100%;
+  padding: 14px;
+  background: #c68b66;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background: #b27956;
+}
+
+
+
+.nav_logo{
+  height: 60px;
+  width: 60px;
+}
+
+/* .btn{
+  background-color: #c68b66;
+  border: 2px solid white;
+  cursor: pointer;
+  padding: 5px;
+ border-radius: 10px;
+ text-align: center;
+ display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+
+} */
+
