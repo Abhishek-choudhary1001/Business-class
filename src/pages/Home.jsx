@@ -7,13 +7,15 @@ import "../Footer.css"
 import "../Card.css"
 import Cards from "../components/Cards.jsx"
 import businessvideo from "../videos/video1.mp4"
+import FAQSection from "../components/FAQ/FAQSection.jsx";
+import PremiumOfferSection from "../components/PremiumOfferSection.jsx";
 
 
 export default function Home() {
   return (
     <>
       <section className="bg relative">
- 
+
         <div className="navbr">
           <Navbar></Navbar>
         </div>
@@ -30,13 +32,15 @@ export default function Home() {
         <Cards></Cards>
       </section>
 
-
+      <section>
+        <FAQSection > </FAQSection>
+      </section>
 
       <section>
 
-<div>
-    <Footer/>
-</div>
+        <div>
+          <Footer />
+        </div>
 
       </section>
     </>
