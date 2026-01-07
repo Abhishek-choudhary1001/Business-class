@@ -6,6 +6,7 @@ import Footer from "../components/Footer.jsx"
 import "../Footer.css"
 import "../Card.css"
 import Cards from "../components/Cards.jsx"
+// eslint-disable-next-line no-unused-vars
 import businessvideo from "../videos/video1.mp4"
 import FAQSection from "../components/FAQ/FAQSection.jsx";
 import PremiumOfferSection from "../components/PremiumOfferSection.jsx";
