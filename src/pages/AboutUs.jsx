@@ -47,7 +47,7 @@ export default function AboutUs() {
       <section className="py-20 px-6 max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <img
-            src="https://images.unsplash.com/photo-1526779259212-42c0be5c10a1?auto=format&fit=crop&w=800&q=80"
+            src="https://media.istockphoto.com/id/2187073474/photo/digital-identification-concept-electronic-id-smartcard-passport-card-accessing-databases-by.webp?a=1&b=1&s=612x612&w=0&k=20&c=46x27ckAZsaSgBxsaqGZdz9m2WtXlyY3bvk5JuQCXKM="
             alt="Team"
             className="w-full md:w-1/2 rounded-xl shadow-lg"
           />

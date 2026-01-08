@@ -113,9 +113,37 @@ export default function BookingForm() {
               <option>3 Travelers</option>
             </select>
 
-            <button className="btn-primary md:col-span-2">
-              Search Flights
-            </button>
+            <button
+  className="
+    relative
+    w-full
+    overflow-hidden
+    py-4
+    rounded-xl
+    font-semibold
+    text-white
+    bg-pink-600
+    group
+    transition-all
+  "
+>
+  {/* Sliding background */}
+  <span
+    className="
+      absolute inset-0
+      bg-gradient-to-r from-pink-500 via-pink-600 to-rose-500
+      translate-x-[-100%]
+      group-hover:translate-x-0
+      transition-transform duration-500 ease-out
+    "
+  />
+
+  {/* Centered Text */}
+  <span className="relative z-10 flex justify-center items-center w-full tracking-wide">
+    Search Flights
+  </span>
+</button>
+
           </div>
         )}
 
@@ -170,9 +198,37 @@ export default function BookingForm() {
               <option>3 Travelers</option>
             </select>
 
-            <button className="btn-primary md:col-span-2">
-              Search Flights
-            </button>
+            <button
+  className="
+    relative
+    w-full
+    overflow-hidden
+    py-4
+    rounded-xl
+    font-semibold
+    text-white
+    bg-pink-600
+    group
+    transition-all
+  "
+>
+  {/* Sliding background */}
+  <span
+    className="
+      absolute inset-0
+      bg-gradient-to-r from-pink-500 via-pink-600 to-rose-500
+      translate-x-[-100%]
+      group-hover:translate-x-0
+      transition-transform duration-500 ease-out
+    "
+  />
+
+  {/* Centered Text */}
+  <span className="relative z-10 flex justify-center items-center w-full tracking-wide">
+    Search Flights
+  </span>
+</button>
+
           </div>
         )}
 
