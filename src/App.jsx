@@ -1,28 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
-import Home from "./pages/Home.jsx";
-import AboutUsPage from "./pages/AboutUs.jsx";
-import BookingForm from "./components/BookingForm.jsx";
-import "./App.css";
+import React from "react";
+import Navbar from "./Components/Navbar";
+import PathRouter from "./Components/PathRouter";
+import { useLocation } from "react-router-dom";
 
-function App() {
+export default function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/my-trip";
   return (
-    <BrowserRouter>
-      {/* Navbar stays on all pages */}
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/booking" element={<BookingForm />} />
-
-        {/* Optional future routes */}
-        {/* <Route path="/products" element={<Products />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
-        {/* <Route path="/blog" element={<Blog />} /> */}
-      </Routes>
-    </BrowserRouter>
+    <>
+      {!hideNavbar && <Navbar />}
+      <PathRouter />
+    </>
   );
 }
-
-export default App;

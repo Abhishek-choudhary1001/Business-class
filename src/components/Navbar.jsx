@@ -1,130 +1,109 @@
-import React, { useEffect, useState } from "react";
-import "../index.css";
-import logo from "../images/BCL_business.png";
-import { NavLink } from "react-router-dom";
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Phone } from "lucide-react";
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  const scrollToSection = (id) => {
-    setMenuOpen(false);
-    setTimeout(() => {
-      const section = document.getElementById(id);
-      section?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-  
+export default function Navbar() {
+  const location = useLocation();
+
+  const navLinks = [
+    { name: "HOME", path: "/" },
+    { name: "FLIGHT DEALS", path: "/flight-deals" },
+    { name : "ABOUT US" , path : "/about-us"},
+    { name : "CONTACT US" , path : "/contact-us"},
+    
+    { name: "FLIGHT STATUS", path: "/flight-status" }
+  ];
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${scrolled ? "bg-white shadow-md" : "bg-transparent"}
-      `}
+      className="navbar navbar-expand-lg fixed-top shadow-sm"
+      style={{
+        background: "rgba(11, 37, 69, 0.9)",
+        backdropFilter: "blur(10px)",
+      }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
-        {/* Logo */}
-        <img src={logo} alt="logo" className="h-14 md:h-20" />
+      
+      <style>{`
+        .navbar-toggler {
+          border: none;
+        }
+        .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+      `}</style>
 
-        {/* Desktop Menu */}
-        <ul
-          className={`hidden md:flex space-x-6 font-sans text-lg font-semibold uppercase
-            ${scrolled ? "text-black" : "text-white"}
-          `}
-        >
-          <li>
-    <NavLink to="/about" className="hover:text-gray-800">
-      About us
-    </NavLink>
-  </li>
+      <div className="container-fluid">
+        {/* LOGO */}
+        <Link className="navbar-brand" to="/">
+          <img
+            src="/photos/BusinessClassLogo.png"
+            alt="logo"
+            style={{ height: "68px" }}
+          />
+        </Link>
 
-  <li>
-    <NavLink to="/products"  className="hover:text-gray-800">
-      Products
-    </NavLink>
-  </li>
-
-  <li>
-    <button
-      onClick={() => scrollToSection("services")}
-      className="hover:text-gray-800 cursor-pointer">
-      Service
-    </button>
-  </li>
-
-  <li>
-    <button
-      onClick={() => scrollToSection("contact")}
-      className="hover:text-gray-800 cursor-pointer">
-      Contact Details
-    </button>
-  </li>
-
-  <li>
-    <NavLink to="/blog"  className="hover:text-gray-800">
-      Blog
-    </NavLink>
-  </li>
-        </ul>
-
-        {/* Mobile Menu Button */}
+        {/* TOGGLER */}
         <button
-          className={`md:hidden text-2xl focus:outline-none
-            ${scrolled ? "text-black" : "text-white"}
-          `}
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          ☰
+          <span className="navbar-toggler-icon"></span>
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden transition-all duration-300 overflow-hidden
-          ${menuOpen ? "max-h-96" : "max-h-0"}
-        `}
-      >
-        <ul className="flex flex-col bg-white text-black px-6 py-4 space-y-4 font-semibold uppercase">
-        <li>
-    <NavLink
-      to="/about"
-      className={({ isActive }) =>
-        isActive ? "text-red-500" : "hover:text-red-500"
-      }
-    >
-      About us
-    </NavLink>
-  </li>
+        {/* MENU */}
+        <div className="collapse navbar-collapse" id="mainNavbar">
+          {/* CENTER LINKS */}
+          <ul className="navbar-nav mx-auto gap-lg-2 text-center mt-3 mt-lg-0">
+            {navLinks.map((item) => {
+              const isActive = location.pathname === item.path;
 
-  <li>
-    <NavLink to="/products"  className="hover:text-gray-800">
-      Products
-    </NavLink>
-  </li>
+              return (
+                <li className="nav-item mx-lg-2" key={item.name}>
+                  <Link
+                    to={item.path}
+                    className="nav-link fw-semibold"
+                    style={{
+                      color: isActive ? "#ff8c00" : "white",
+                      borderBottom: isActive
+                        ? "3px solid #ff8c00"
+                        : "3px solid transparent",
+                      paddingBottom: "6px",
+                      transition: "0.3s",
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-  <li>
-    <NavLink to="/#services"  className="hover:text-gray-800">
-      Service
-    </NavLink>
-  </li>
-
-  <li>
-    <NavLink to="/#contact"  className="hover:text-gray-800">
-      Contact Details
-    </NavLink>
-  </li>
-
-  <li>
-    <NavLink to="/blog"  className="hover:text-gray-800">
-      Blog
-    </NavLink>
-  </li>
-        </ul>
+          {/* CALL BUTTON */}
+          <div className="d-flex justify-content-center mt-3 mt-lg-0">
+            <a
+              href="tel:(866)307-5957"
+              style={{
+                background: "linear-gradient(135deg,#ff3c3c,#ff8c00)",
+                color: "white",
+                borderRadius: "30px",
+                padding: "8px 22px",
+                fontWeight: "600",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <Phone size={18} />
+              (866)307-5957
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   );
